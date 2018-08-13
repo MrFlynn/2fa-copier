@@ -1,5 +1,5 @@
 -- Run shell script and store result as `response`.
-do shell script (["bash ~/Desktop/2fa-copier/message.sh"] as text)
+do shell script (["bash message.sh"] as text)
 set response to result
 
 if response is not "-1" then
