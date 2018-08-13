@@ -9,20 +9,27 @@ repeat
 		-- Display auth code if the response isn't -1
 		if response is not prev then
 			-- Only display dialog if the response is not the previous code.
-      set prev to response
-
-			display dialog "Would you like to copy auth code: " & response & Â
-				" to the Clipboard?" buttons {"Copy", "Cancel"} Â
-				default button Â
-				"Copy" cancel button Â
-				"Cancel" with title Â
-				"New Authentication Code Found" with icon Â
-				note giving up after 10
+			set prev to response
 			
-			-- Copy auth code to the clipboard if the user confirms.
-			if button returned of result = "Copy" then
-				set the clipboard to response
-			end if
+			try
+				display dialog "Would you like to copy auth code: " & response & Â
+					" to the Clipboard?" buttons {"Copy", "Cancel"} Â
+					default button Â
+					"Copy" cancel button Â
+					"Cancel" with title Â
+					"New Authentication Code Found" with icon Â
+					note giving up after 10
+				
+				-- Copy auth code to the clipboard if the user confirms.
+				if button returned of result = "Copy" then
+					set the clipboard to response
+				end if
+				
+			on error error_number
+				if error_number is -128 then
+					-- Do not exit if user presses "Cancel".
+				end if
+			end try
 		end if
 	end if
 	
