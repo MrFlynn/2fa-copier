@@ -7,7 +7,7 @@
   <key>ProgramArguments</key>
   <array>
     <string>/usr/bin/osascript</string>
-    <string>/usr/local/Cellar/auth-code-copier/app.scpt</string>
+    <string>/usr/local/Cellar/auth-code-copier/app.applescript</string>
   </array>
   <key>StartInterval</key>
   <integer>5</integer>

@@ -72,7 +72,7 @@ main () {
   message_content="$(get_last_message)"
 
   if [[ "$message_content" = *"code"* ]]; then
-    echo $(get_auth_code "$message_content")
+    get_auth_code "$message_content"
   else
     echo -1
   fi
